@@ -23,7 +23,6 @@ class UserController extends Controller
     public function loginPost (Request $request){
         $email = $request->email;
         $password = $request->password;
-
         $data = ModelUser::where('email',$email)->first();
         if ($data) {
             if(Hash::check($password, $data->password)){
